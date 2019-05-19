@@ -11,7 +11,6 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.stereotype.Component;
 
-import java.util.HashMap;
 import java.util.List;
 
 @Component
@@ -49,7 +48,7 @@ public class OnLoad implements CommandLineRunner {
 
   private <T> List<T> readJsonFile(Class<T> classToConvertTo, String filePath) {
     try {
-      return objMapper.readValue( new ClassPathResource(filePath).getFile(), listType(objMapper, classToConvertTo));
+      return objMapper.readValue( new ClassPathResource(filePath).getInputStream(), listType(objMapper, classToConvertTo));
     } catch (Exception ex) {
       System.out.println(ex.getMessage());
       return null;
