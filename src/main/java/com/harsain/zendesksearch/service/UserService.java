@@ -38,25 +38,8 @@ public class UserService {
     public List<UserResponseDto> findBy(String key, String value) {
         List<User> users = onLoad.getUsers();
         List<User> results = users.stream()
-                .filter(new Predicate<User>() {
-                            @Override
-                            public boolean test(User user) {
-                                try {
-                                    Method getter = new PropertyDescriptor(key, user.getClass()).getReadMethod();
-                                    if (getter != null) {
-                                        Object valueRead = getter.invoke(user);
-                                        if (getter.getReturnType().equals(List.class))
-                                            return ((ArrayList) valueRead).stream().anyMatch(tag -> tag.toString().equalsIgnoreCase(value.toString()));
-                                        return valueRead.toString().equalsIgnoreCase(value);
-                                    }
-
-                                    return false;
-                                } catch (Exception e) {
-                                    return false;
-                                }
-                            }
-                        }
-                ).collect(Collectors.toList());
+                .filter(filterUser(key, value))
+                .collect(Collectors.toList());
 
         List<UserResponseDto> userResponseDtoList = new ArrayList();
         results.stream().forEach(user -> {
@@ -65,5 +48,23 @@ public class UserService {
         });
 
         return userResponseDtoList;
+    }
+
+    public static Predicate<User> filterUser(String key, String value) {
+        return user -> {
+            try {
+                Method getter = new PropertyDescriptor(key, user.getClass()).getReadMethod();
+                if (getter != null) {
+                    Object valueRead = getter.invoke(user);
+                    if (getter.getReturnType().equals(List.class))
+                        return ((ArrayList) valueRead).stream().anyMatch(tag -> tag.toString().equalsIgnoreCase(value.toString()));
+                    return valueRead.toString().equalsIgnoreCase(value);
+                }
+
+                return false;
+            } catch (Exception e) {
+                return false;
+            }
+        };
     }
 }
