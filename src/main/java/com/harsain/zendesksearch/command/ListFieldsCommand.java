@@ -1,8 +1,8 @@
 package com.harsain.zendesksearch.command;
 
-import com.harsain.zendesksearch.model.Organisation;
-import com.harsain.zendesksearch.model.Ticket;
-import com.harsain.zendesksearch.model.User;
+import com.harsain.zendesksearch.dto.Organisation;
+import com.harsain.zendesksearch.dto.Ticket;
+import com.harsain.zendesksearch.dto.User;
 import org.springframework.shell.standard.ShellComponent;
 import org.springframework.shell.standard.ShellMethod;
 
@@ -16,7 +16,7 @@ public class ListFieldsCommand {
 
     @ShellMethod("Lists all the possible fields available to search on")
     public void list() {
-        List<String> userFieldsList = Arrays.stream(User.class.getDeclaredFields()).map(Field::getName).collect(Collectors.toList());
+        List<String> userFieldsList = User.getProperties();
         List<String> organisationFieldsList = Arrays.stream(Organisation.class.getDeclaredFields()).map(Field::getName).collect(Collectors.toList());
         List<String> ticketFieldsList = Arrays.stream(Ticket.class.getDeclaredFields()).map(Field::getName).collect(Collectors.toList());
 

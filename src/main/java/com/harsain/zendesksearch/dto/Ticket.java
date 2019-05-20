@@ -1,7 +1,8 @@
-package com.harsain.zendesksearch.model;
+package com.harsain.zendesksearch.dto;
 
 import lombok.Data;
-import org.springframework.data.annotation.Id;
+
+import java.util.List;
 
 @Data
 public class Ticket {
@@ -14,7 +15,7 @@ public class Ticket {
   private String type;
   private String priority;
   private String url;
-  private String[] tags;
+  private List<String> tags;
   private String via;
   private String organization_id;
   private String due_at;

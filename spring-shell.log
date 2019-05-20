@@ -100,3 +100,46 @@
 1558277303501:list
 1558277318932:search active false
 1558277328754:exit
+1558305193974:search tags 1
+1558306183214:search tags Sutton
+1558307080294:search tags sutton
+1558313927140:search
+1558313952044:help
+1558313965967:stacktrace
+1558313971517:exit
+1558314823875:search tags sutton
+1558314833467:search _id 20
+1558316502923:list
+1558322061394:search tags sutton
+1558322105635:searcg tags sutton
+1558322113728:search tags sutton
+1558322122036:stacktrace
+1558322168397:search tags sutton
+1558323140967:search active false
+1558323209836:exit
+1558331906349:help
+1558331913090:user-saerch tags sutton
+1558331920960:user-search tags sutton
+1558332241015:help
+1558332251215:organisation-search _id 100
+1558332273111:organisation-search _id 114
+1558332288989:organisation-search tags dunn
+1558332364535:stacktrace
+1558332466812:organisation-search tags dunn
+1558332517709:user-search tags jeff
+1558332563953:stacktrace
+1558332714491:user-search tags jeff
+1558333017639:organisation-search domain_names farmage.com
+1558333099281:organisation-search _id 114
+1558333122291:organisation-search domain_names goko.com
+1558333139671:organisation-search tags dunn
+1558333208464:organisation-search name isotronic
+1558333226891:organisation-search shared_tickets true
+1558335516951:help
+1558335552468:ticket-search type incident
+1558335640779:ticket-search priority high
+1558335912869:user-search tags jeff
+1558335925815:user-search _id 3
+1558336527484:ticket-search status pending
+1558336549244:help
+1558336557372:exit

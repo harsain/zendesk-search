@@ -1,16 +1,18 @@
 package com.harsain.zendesksearch;
 
+import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.JavaType;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.harsain.zendesksearch.model.Organisation;
-import com.harsain.zendesksearch.model.Ticket;
-import com.harsain.zendesksearch.model.User;
+import com.harsain.zendesksearch.dto.Organisation;
+import com.harsain.zendesksearch.dto.Ticket;
+import com.harsain.zendesksearch.dto.User;
 import org.springframework.beans.factory.config.ConfigurableBeanFactory;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Scope;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.stereotype.Component;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Component
@@ -18,9 +20,14 @@ import java.util.List;
 public class OnLoad implements CommandLineRunner {
 
   private ObjectMapper objMapper;
+  private List<User> users = new ArrayList<>();
+  private List<Organisation> organisations = new ArrayList<>();
+  private List<Ticket> tickets = new ArrayList<>();
 
   {
     objMapper = new ObjectMapper();
+    objMapper.enable(DeserializationFeature.ACCEPT_SINGLE_VALUE_AS_ARRAY);
+
   }
 
   /**
@@ -35,15 +42,27 @@ public class OnLoad implements CommandLineRunner {
   }
 
   public List<User> getUsers() {
-    return readJsonFile(User.class, "data/users.json");
+    if (users.size() == 0) {
+      users = readJsonFile(User.class, "data/users.json");
+    }
+
+    return users;
   }
 
   public List<Organisation> getOrganisations() {
-    return readJsonFile(Organisation.class, "data/organisations.json");
+    if (organisations.size() == 0) {
+      organisations = readJsonFile(Organisation.class, "data/organizations.json");
+    }
+
+    return organisations;
   }
 
   public List<Ticket> getTickets() {
-    return readJsonFile(Ticket.class, "data/tickets.json");
+    if (tickets.size() == 0) {
+      tickets = readJsonFile(Ticket.class, "data/tickets.json");
+    }
+
+    return tickets;
   }
 
   private <T> List<T> readJsonFile(Class<T> classToConvertTo, String filePath) {

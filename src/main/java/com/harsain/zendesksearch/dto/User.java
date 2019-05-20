@@ -1,9 +1,8 @@
-package com.harsain.zendesksearch.model;
+package com.harsain.zendesksearch.dto;
 
 import lombok.Data;
 
 import java.lang.reflect.Field;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -30,7 +29,7 @@ public class User {
   private String alias;
   private String email;
 
-  public List<String> getProperties() {
+  public static List<String> getProperties() {
     return Arrays.stream(User.class.getDeclaredFields()).map(Field::getName).collect(Collectors.toList());
   }
 }
