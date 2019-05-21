@@ -2,12 +2,8 @@ package com.harsain.zendesksearch.mapper;
 
 import com.harsain.zendesksearch.dto.Organisation;
 import com.harsain.zendesksearch.dto.User;
-import com.harsain.zendesksearch.dto.UserResponseDto;
-import org.mapstruct.DecoratedWith;
+import com.harsain.zendesksearch.dto.response.UserResponseDto;
 import org.mapstruct.Mapper;
-import org.mapstruct.Mapping;
-import org.mapstruct.Mappings;
-import org.mapstruct.factory.Mappers;
 
 import java.util.ArrayList;
 import java.util.List;

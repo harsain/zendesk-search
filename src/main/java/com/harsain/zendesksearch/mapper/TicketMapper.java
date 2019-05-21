@@ -2,7 +2,7 @@ package com.harsain.zendesksearch.mapper;
 
 import com.harsain.zendesksearch.dto.Organisation;
 import com.harsain.zendesksearch.dto.Ticket;
-import com.harsain.zendesksearch.dto.TicketResponseDto;
+import com.harsain.zendesksearch.dto.response.TicketResponseDto;
 import com.harsain.zendesksearch.dto.User;
 import org.mapstruct.Mapper;
 

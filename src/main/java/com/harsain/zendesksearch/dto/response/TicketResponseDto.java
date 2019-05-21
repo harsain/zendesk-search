@@ -1,5 +1,7 @@
-package com.harsain.zendesksearch.dto;
+package com.harsain.zendesksearch.dto.response;
 
+import com.harsain.zendesksearch.dto.Organisation;
+import com.harsain.zendesksearch.dto.User;
 import lombok.Data;
 
 import java.util.List;

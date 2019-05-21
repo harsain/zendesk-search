@@ -1,4 +1,4 @@
-package com.harsain.zendesksearch;
+package com.harsain.zendesksearch.shell;
 
 import org.springframework.core.MethodParameter;
 import org.springframework.shell.CompletionContext;
@@ -20,7 +20,11 @@ public class SearchValueProvider implements ValueProvider {
     public List<CompletionProposal> complete(MethodParameter methodParameter, CompletionContext completionContext, String[] strings) {
         List<CompletionProposal> result = new ArrayList<>();
         List<String> knownCommands = new ArrayList<>();
+        knownCommands.add("list");
         knownCommands.add("search");
+        knownCommands.add("user-search");
+        knownCommands.add("organisation-search");
+        knownCommands.add("ticket-search");
 
         String userInput = completionContext.currentWordUpToCursor();
         knownCommands.stream()

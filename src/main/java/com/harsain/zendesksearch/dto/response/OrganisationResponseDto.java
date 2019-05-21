@@ -1,6 +1,8 @@
-package com.harsain.zendesksearch.dto;
+package com.harsain.zendesksearch.dto.response;
 
 import lombok.Data;
+
+import java.util.List;
 
 @Data
 public class OrganisationResponseDto {
@@ -11,6 +13,6 @@ public class OrganisationResponseDto {
     private String external_id;
     private String details;
     private String url;
-    private String[] domain_names;
-    private String[] tags;
+    private List<String> domain_names;
+    private List<String> tags;
 }

@@ -8,8 +8,6 @@ import org.springframework.shell.standard.ShellComponent;
 import org.springframework.shell.standard.ShellMethod;
 import org.springframework.util.StringUtils;
 
-import static java.lang.System.out;
-
 @ShellComponent
 public class SearchCommand {
 
@@ -31,7 +29,7 @@ public class SearchCommand {
         do {
             entity = inputReader.prompt("Entity [user, organisation, ticket]");
             if (StringUtils.hasText(entity)) {
-                out.println(String.format("ENTITY TO SEARCH: %s", entity));
+                System.out.println(String.format("ENTITY TO SEARCH: %s", entity));
             } else {
                 shellHelper.printWarning("Entity CAN NOT be empty string? Please enter valid value!");
             }
@@ -41,7 +39,7 @@ public class SearchCommand {
         do {
             key = inputReader.prompt(String.format("Entity: %s key", entity), null, false);
             if (StringUtils.hasText(key)) {
-                out.println(String.format("KEY: %s", key));
+                System.out.println(String.format("KEY: %s", key));
             } else {
                 shellHelper.printWarning("KEY CAN NOT be empty string? Please enter valid value!");
             }
@@ -51,7 +49,7 @@ public class SearchCommand {
         do {
             value = inputReader.prompt(String.format("ENTITY: %s KEY: %s, VALUE", entity, key), "", false);
             if (StringUtils.hasText(key)) {
-                out.println(String.format("VALUE: %s", key));
+                System.out.println(String.format("VALUE: %s", key));
             } else {
                 shellHelper.printWarning("KEY CAN NOT be empty string? Please enter valid value!");
             }

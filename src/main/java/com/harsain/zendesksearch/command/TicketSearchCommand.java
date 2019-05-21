@@ -2,7 +2,7 @@ package com.harsain.zendesksearch.command;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.harsain.zendesksearch.dto.TicketResponseDto;
+import com.harsain.zendesksearch.dto.response.TicketResponseDto;
 import com.harsain.zendesksearch.service.TicketService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.shell.standard.ShellComponent;

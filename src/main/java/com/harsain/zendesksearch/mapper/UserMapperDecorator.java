@@ -2,7 +2,7 @@ package com.harsain.zendesksearch.mapper;
 
 import com.harsain.zendesksearch.dto.Organisation;
 import com.harsain.zendesksearch.dto.User;
-import com.harsain.zendesksearch.dto.UserResponseDto;
+import com.harsain.zendesksearch.dto.response.UserResponseDto;
 
 import java.util.ArrayList;
 import java.util.List;
