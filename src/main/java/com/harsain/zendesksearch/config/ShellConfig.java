@@ -1,7 +1,6 @@
 package com.harsain.zendesksearch.config;
 
 import com.harsain.zendesksearch.shell.InputReader;
-import com.harsain.zendesksearch.shell.ProgressBar;
 import com.harsain.zendesksearch.shell.PromptColor;
 import com.harsain.zendesksearch.shell.ShellHelper;
 import org.jline.reader.History;
@@ -11,6 +10,7 @@ import org.jline.reader.Parser;
 import org.jline.terminal.Terminal;
 import org.jline.utils.AttributedString;
 import org.jline.utils.AttributedStyle;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Lazy;
@@ -18,6 +18,7 @@ import org.springframework.shell.jline.JLineShellAutoConfiguration;
 
 @Configuration
 public class ShellConfig {
+
     @Bean
     public ShellHelper shellHelper(@Lazy Terminal terminal) {
         return new ShellHelper(terminal);
@@ -28,7 +29,7 @@ public class ShellConfig {
             @Lazy Terminal terminal,
             @Lazy Parser parser,
             JLineShellAutoConfiguration.CompleterAdapter completer,
-            @Lazy History history,
+            History history,
             ShellHelper shellHelper
     ) {
         LineReaderBuilder lineReaderBuilder = LineReaderBuilder.builder()
@@ -48,10 +49,10 @@ public class ShellConfig {
         return new InputReader(lineReader, shellHelper);
     }
 
-    @Bean
-    public ProgressBar progressBar(ShellHelper shellHelper) {
-        return new ProgressBar(shellHelper);
-    }
+//    @Bean
+//    public ProgressBar progressBar(ShellHelper shellHelper) {
+//        return new ProgressBar(shellHelper);
+//    }
 
 //    @Bean
 //    public ProgressCounter progressCounter(@Lazy Terminal terminal) {

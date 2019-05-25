@@ -13,7 +13,7 @@ public class TestApplicationRunner implements ApplicationRunner {
     private static Logger log = LoggerFactory.getLogger(TestApplicationRunner.class);
 
     public TestApplicationRunner() {
-        log.info("Test Application Runner started!");
+        log.info("CommandTest Application Runner started!");
     }
 
     @Override

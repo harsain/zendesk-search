@@ -5,4 +5,5 @@ ${AnsiColor.BLUE}   /  /    |   __|  |  . `  | |  |  |  ||   __|      \   \    |
 ${AnsiColor.BLUE}  /  /----.|  |____ |  |\   | |  '--'  ||  |____ .----)   |   |  .  \     .----)   |   |  |____  /  _____  \  |  |\  \----.|  `----.|  |  |  |
 ${AnsiColor.BLUE} /________||_______||__| \__| |_______/ |_______||_______/    |__|\__\    |_______/    |_______|/__/     \__\ | _| `._____| \______||__|  |__|
 
-${Ansi.RED} :: Spring Boot${spring-boot.formatted-version} :: ${Ansi.DEFAULT}
+${AnsiColor.MAGENTA}  :: Author :: Harsain (harsain@gmail.com) :: ${Ansi.DEFAULT}
+${Ansi.RED} Built using : Spring Boot${spring-boot.formatted-version} :: ${Ansi.DEFAULT}

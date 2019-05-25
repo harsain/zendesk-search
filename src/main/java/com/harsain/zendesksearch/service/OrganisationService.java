@@ -24,7 +24,7 @@ public class OrganisationService {
         filterPredicate = new FilterPredicate();
     }
 
-    Organisation findById(String id) {
+    public Organisation findById(String id) {
         List<Organisation> organisationList = onLoad.getOrganisations();
         List<Organisation> organisationsFiltered  = organisationList.stream().filter(o->o.get_id().equalsIgnoreCase(id)).collect(Collectors.toList());
         if (!organisationsFiltered.isEmpty() ) {

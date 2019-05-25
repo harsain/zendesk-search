@@ -11,7 +11,7 @@ import java.util.List;
 
 @Mapper
 public abstract class TicketMapper {
-    public TicketResponseDto ticketToTicketRespnoseDto(Ticket ticket, User submitterUser, User assigneeUser, Organisation organisation) {
+    public TicketResponseDto ticketToTicketResponseDto(Ticket ticket, User submitterUser, User assigneeUser, Organisation organisation) {
         if ( ticket == null ) {
             return null;
         }

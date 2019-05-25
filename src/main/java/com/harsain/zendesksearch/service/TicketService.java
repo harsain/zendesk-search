@@ -41,7 +41,7 @@ public class TicketService {
                 Organisation organisation = organisationService.findById(ticket.getOrganization_id());
                 User assigneeUser = userService.findById(ticket.getAssignee_id());
                 User submitterUser = userService.findById(ticket.getSubmitter_id());
-                ticketResponseDtoList.add(Mappers.getMapper(TicketMapper.class).ticketToTicketRespnoseDto(ticket, submitterUser, assigneeUser, organisation));
+                ticketResponseDtoList.add(Mappers.getMapper(TicketMapper.class).ticketToTicketResponseDto(ticket, submitterUser, assigneeUser, organisation));
             });
         }
 

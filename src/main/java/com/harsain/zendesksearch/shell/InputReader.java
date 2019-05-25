@@ -1,6 +1,7 @@
 package com.harsain.zendesksearch.shell;
 
 import org.jline.reader.LineReader;
+import org.springframework.stereotype.Component;
 import org.springframework.util.StringUtils;
 
 import java.util.*;
@@ -16,13 +17,8 @@ public class InputReader {
     private ShellHelper shellHelper;
 
     public InputReader(LineReader lineReader, ShellHelper shellHelper) {
-        this(lineReader, shellHelper, null);
-    }
-
-    public InputReader(LineReader lineReader, ShellHelper shellHelper, Character mask) {
         this.lineReader = lineReader;
         this.shellHelper = shellHelper;
-        this.mask = mask != null ? mask : DEFAULT_MASK;
     }
 
     public String prompt(String  prompt) {

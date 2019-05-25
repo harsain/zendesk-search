@@ -4,7 +4,7 @@ package com.harsain.zendesksearch;
 //@SpringBootTest
 //public class ZendeskSearchApplicationTests {
 //
-//  @Test
+//  @CommandTest
 //  public void contextLoads() {
 //  }
 //
