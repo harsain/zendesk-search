@@ -1,6 +1,6 @@
 package com.harsain.zendesksearch.exception;
 
-public class NoOrganisationFoundException extends RuntimeException {
+public class NoTicketFoundException extends RuntimeException {
 
   /**
    * Constructs a new runtime exception with the specified detail message. The cause is not
@@ -9,7 +9,7 @@ public class NoOrganisationFoundException extends RuntimeException {
    * @param message the detail message. The detail message is saved for later retrieval by the
    * {@link #getMessage()} method.
    */
-  public NoOrganisationFoundException(String message) {
+  public NoTicketFoundException(String message) {
     super(message);
   }
 
@@ -24,7 +24,7 @@ public class NoOrganisationFoundException extends RuntimeException {
    * (A {@code null} value is permitted, and indicates that the cause is nonexistent or unknown.)
    * @since 1.4
    */
-  public NoOrganisationFoundException(String message, Throwable cause) {
+  public NoTicketFoundException(String message, Throwable cause) {
     super(message, cause);
   }
 }

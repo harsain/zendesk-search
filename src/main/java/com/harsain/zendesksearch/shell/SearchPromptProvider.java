@@ -11,9 +11,9 @@ import org.springframework.stereotype.Component;
 @Order(Ordered.HIGHEST_PRECEDENCE)
 public class SearchPromptProvider implements PromptProvider {
 
-    @Override
-    public AttributedString getPrompt() {
-        return new AttributedString( "Zendesk-search:>",
-                AttributedStyle.DEFAULT.foreground(AttributedStyle.BLUE));
-    }
+  @Override
+  public AttributedString getPrompt() {
+    return new AttributedString("Zendesk-search:>",
+        AttributedStyle.DEFAULT.foreground(AttributedStyle.BLUE));
+  }
 }

@@ -1,11 +1,11 @@
 package com.harsain.zendesksearch.dto;
 
-import lombok.Data;
-
 import java.util.List;
+import lombok.Data;
 
 @Data
 public class Ticket {
+
   private String _id;
   private String subject;
   private String created_at;

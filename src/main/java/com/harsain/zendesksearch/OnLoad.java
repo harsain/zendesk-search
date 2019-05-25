@@ -6,14 +6,13 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.harsain.zendesksearch.dto.Organisation;
 import com.harsain.zendesksearch.dto.Ticket;
 import com.harsain.zendesksearch.dto.User;
+import java.util.ArrayList;
+import java.util.List;
 import org.springframework.beans.factory.config.ConfigurableBeanFactory;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Scope;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.stereotype.Component;
-
-import java.util.ArrayList;
-import java.util.List;
 
 @Component
 @Scope(value = ConfigurableBeanFactory.SCOPE_SINGLETON)
@@ -38,11 +37,10 @@ public class OnLoad implements CommandLineRunner {
    */
   @Override
   public void run(String... args) throws Exception {
-    System.out.println("args are: " + args.length);
   }
 
   public List<User> getUsers() {
-    if (users.size() == 0) {
+    if (users.isEmpty()) {
       users = readJsonFile(User.class, "data/users.json");
     }
 
@@ -50,7 +48,7 @@ public class OnLoad implements CommandLineRunner {
   }
 
   public List<Organisation> getOrganisations() {
-    if (organisations.size() == 0) {
+    if (organisations.isEmpty()) {
       organisations = readJsonFile(Organisation.class, "data/organizations.json");
     }
 
@@ -58,19 +56,21 @@ public class OnLoad implements CommandLineRunner {
   }
 
   public List<Ticket> getTickets() {
-    if (tickets.size() == 0) {
+    if (tickets.isEmpty()) {
       tickets = readJsonFile(Ticket.class, "data/tickets.json");
     }
 
     return tickets;
   }
 
-  private <T> List<T> readJsonFile(Class<T> classToConvertTo, String filePath) {
+  private <T> List<T> readJsonFile(Class<T> classToConvertTo, String filePath)
+      throws RuntimeException {
     try {
-      return objMapper.readValue( new ClassPathResource(filePath).getInputStream(), listType(objMapper, classToConvertTo));
+      return objMapper.readValue(new ClassPathResource(filePath).getInputStream(),
+          listType(objMapper, classToConvertTo));
     } catch (Exception ex) {
-      System.out.println(ex.getMessage());
-      return null;
+      throw new RuntimeException(
+          String.format("Unable to read JSON file from file path: %s", filePath));
     }
   }
 

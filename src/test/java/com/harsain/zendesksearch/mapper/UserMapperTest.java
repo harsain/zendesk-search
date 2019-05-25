@@ -12,18 +12,19 @@ import org.mockito.junit.jupiter.MockitoExtension;
 @ExtendWith(MockitoExtension.class)
 public class UserMapperTest {
 
-    @Test
-    public void testUserMapping() {
-        User user = new User();
-        user.set_id("1");
-        user.setOrganization_id("101");
+  @Test
+  public void testUserMapping() {
+    User user = new User();
+    user.set_id("1");
+    user.setOrganization_id("101");
 
-        Organisation organisation = new Organisation();
-        organisation.set_id("101");
-        UserResponseDto userResponseDto = Mappers.getMapper(UserMapper.class).userToUserResponseDto(user, organisation);
+    Organisation organisation = new Organisation();
+    organisation.set_id("101");
+    UserResponseDto userResponseDto = Mappers.getMapper(UserMapper.class)
+        .userToUserResponseDto(user, organisation);
 
-        Assertions.assertEquals(Organisation.class, userResponseDto.getOrganisationObj().getClass());
-        Assertions.assertEquals("101", userResponseDto.getOrganisationObj().get_id());
-        Assertions.assertEquals("1", userResponseDto.get_id());
-    }
+    Assertions.assertEquals(Organisation.class, userResponseDto.getOrganisationObj().getClass());
+    Assertions.assertEquals("101", userResponseDto.getOrganisationObj().get_id());
+    Assertions.assertEquals("1", userResponseDto.get_id());
+  }
 }

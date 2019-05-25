@@ -1,172 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns="http://maven.apache.org/POM/4.0.0"
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-  <modelVersion>4.0.0</modelVersion>
-  <parent>
-    <groupId>org.springframework.boot</groupId>
-    <artifactId>spring-boot-starter-parent</artifactId>
-    <version>2.1.5.RELEASE</version>
-    <relativePath/> <!-- lookup parent from service -->
-  </parent>
-  <groupId>com.harsain</groupId>
   <artifactId>zendesk-search</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
-  <name>zendesk-search</name>
-  <description>Zendesk Search</description>
-
-  <properties>
-    <java.version>12</java.version>
-    <org.mapstruct.version>1.3.0.Final</org.mapstruct.version>
-    <org.projectlombok.version>1.18.8</org.projectlombok.version>
-    <junit.jupiter.version>5.4.2</junit.jupiter.version>
-  </properties>
-
-  <dependencies>
-    <dependency>
-      <groupId>org.springframework.shell</groupId>
-      <artifactId>spring-shell-starter</artifactId>
-      <version>2.0.0.RELEASE</version>
-    </dependency>
-
-    <dependency>
-      <groupId>org.projectlombok</groupId>
-      <artifactId>lombok</artifactId>
-      <optional>true</optional>
-      <version>${org.projectlombok.version}</version>
-    </dependency>
-
-<!--    <dependency>-->
-<!--      <groupId>org.springframework.boot</groupId>-->
-<!--      <artifactId>spring-boot-starter-test</artifactId>-->
-<!--      <scope>test</scope>-->
-<!--    </dependency>-->
-
-<!--    <dependency>-->
-<!--      <groupId>org.springframework.boot</groupId>-->
-<!--      <artifactId>spring-boot-starter-data-jpa</artifactId>-->
-<!--    </dependency>-->
-
-<!--    <dependency>-->
-<!--      <groupId>com.h2database</groupId>-->
-<!--      <artifactId>h2</artifactId>-->
-<!--    </dependency>-->
-
-    <dependency>
-        <groupId>com.fasterxml.jackson.core</groupId>
-        <artifactId>jackson-databind</artifactId>
-        <version>2.9.8</version>
-    </dependency>
-
-    <dependency>
-      <groupId>org.mapstruct</groupId>
-      <artifactId>mapstruct</artifactId>
-      <version>${org.mapstruct.version}</version>
-    </dependency>
-
-<!--    <dependency>-->
-<!--      <groupId>org.junit.platform</groupId>-->
-<!--      <artifactId>junit-platform-launcher</artifactId>-->
-<!--      <version>1.4.2</version>-->
-<!--      <scope>test</scope>-->
-<!--    </dependency>-->
-<!--    <dependency>-->
-<!--      <groupId>org.junit.jupiter</groupId>-->
-<!--      <artifactId>junit-jupiter-engine</artifactId>-->
-<!--      <version>5.4.2</version>-->
-<!--      <scope>test</scope>-->
-<!--    </dependency>-->
-<!--    <dependency>-->
-<!--      <groupId>org.junit.jupiter</groupId>-->
-<!--      <artifactId>junit-jupiter-api</artifactId>-->
-<!--      <version>5.4.2</version>-->
-<!--      <scope>test</scope>-->
-<!--    </dependency>-->
-
-    <dependency>
-      <groupId>org.springframework.boot</groupId>
-      <artifactId>spring-boot-starter-test</artifactId>
-      <version>2.1.5.RELEASE</version>
-      <exclusions>
-        <exclusion>
-          <groupId>junit</groupId>
-          <artifactId>junit</artifactId>
-        </exclusion>
-      </exclusions>
-    </dependency>
-
-    <dependency>
-      <groupId>org.junit.jupiter</groupId>
-      <artifactId>junit-jupiter</artifactId>
-      <version>${junit.jupiter.version}</version>
-      <scope>test</scope>
-    </dependency>
-
-    <dependency>
-      <groupId>org.junit.platform</groupId>
-      <artifactId>junit-platform-commons</artifactId>
-      <version>1.4.1</version>
-      <scope>test</scope>
-    </dependency>
-
-    <dependency>
-      <groupId>org.junit.jupiter</groupId>
-      <artifactId>junit-jupiter-engine</artifactId>
-      <scope>test</scope>
-    </dependency>
-
-    <dependency>
-      <groupId>org.junit.jupiter</groupId>
-      <artifactId>junit-jupiter-api</artifactId>
-      <scope>test</scope>
-    </dependency>
-
-    <dependency>
-      <groupId>org.mockito</groupId>
-      <artifactId>mockito-core</artifactId>
-      <version>2.27.0</version>
-      <scope>test</scope>
-    </dependency>
-
-    <dependency>
-      <groupId>org.mockito</groupId>
-      <artifactId>mockito-junit-jupiter</artifactId>
-      <version>2.27.0</version>
-      <scope>test</scope>
-    </dependency>
-    <dependency>
-      <groupId>org.jetbrains</groupId>
-      <artifactId>annotations</artifactId>
-      <version>17.0.0</version>
-      <scope>compile</scope>
-    </dependency>
-  </dependencies>
-
   <build>
-    <resources>
-      <resource>
-        <directory>src/main/resources</directory>
-        <excludes>
-          <exclude>logback.xml</exclude>
-        </excludes>
-      </resource>
-    </resources>
     <plugins>
       <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-compiler-plugin</artifactId>
         <configuration>
-          <source>${java.version}</source>
-          <target>${java.version}</target>
           <annotationProcessorPaths>
             <path>
-              <groupId>org.projectlombok</groupId>
               <artifactId>lombok</artifactId>
+              <groupId>org.projectlombok</groupId>
               <version>${org.projectlombok.version}</version>
             </path>
             <path>
-              <groupId>org.mapstruct</groupId>
               <artifactId>mapstruct-processor</artifactId>
+              <groupId>org.mapstruct</groupId>
               <version>${org.mapstruct.version}</version>
             </path>
           </annotationProcessorPaths>
@@ -174,7 +24,10 @@
             <arg>-Amapstruct.suppressGeneratorTimestamp=true</arg>
             <arg>-Amapstruct.defaultComponentModel=spring</arg>
           </compilerArgs>
+          <source>${java.version}</source>
+          <target>${java.version}</target>
         </configuration>
+        <groupId>org.apache.maven.plugins</groupId>
       </plugin>
       <plugin>
         <artifactId>maven-surefire-plugin</artifactId>
@@ -185,11 +38,196 @@
         <version>2.22.0</version>
       </plugin>
       <plugin>
-        <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-maven-plugin</artifactId>
+        <groupId>org.springframework.boot</groupId>
       </plugin>
+
+      <plugin>
+        <artifactId>maven-dependency-plugin</artifactId>
+        <executions>
+          <execution>
+            <configuration>
+              <artifactItems>
+                <artifactItem>
+                  <artifactId>${project.artifactId}</artifactId>
+                  <groupId>${project.groupId}</groupId>
+                  <version>${project.version}</version>
+                </artifactItem>
+              </artifactItems>
+            </configuration>
+            <goals>
+              <goal>unpack</goal>
+            </goals>
+            <id>unpack</id>
+            <phase>package</phase>
+          </execution>
+        </executions>
+        <groupId>org.apache.maven.plugins</groupId>
+      </plugin>
+
+      <plugin>
+        <artifactId>dockerfile-maven-plugin</artifactId>
+        <configuration>
+          <buildArgs>
+            <JAR_FILE>target/${project.build.finalName}.jar</JAR_FILE>
+          </buildArgs>
+          <repository>zendesk-search</repository>
+          <tag>${project.version}</tag>
+        </configuration>
+        <executions>
+          <execution>
+            <goals>
+              <goal>build</goal>
+            </goals>
+            <id>default</id>
+            <phase>install</phase>
+          </execution>
+        </executions>
+        <groupId>com.spotify</groupId>
+        <version>1.4.10</version>
+      </plugin>
+
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-javadoc-plugin</artifactId>
+        <version>3.1.0</version>
+      </plugin>
+
+      <plugin>
+        <groupId>org.jacoco</groupId>
+        <artifactId>jacoco-maven-plugin</artifactId>
+        <version>0.8.4</version>
+        <executions>
+          <execution>
+            <goals>
+              <goal>prepare-agent</goal>
+            </goals>
+          </execution>
+          <execution>
+            <id>report</id>
+            <phase>prepare-package</phase>
+            <goals>
+              <goal>report</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+
     </plugins>
+    <resources>
+      <resource>
+        <directory>src/main/resources</directory>
+        <excludes>
+          <exclude>logback.xml</exclude>
+        </excludes>
+      </resource>
+    </resources>
   </build>
+  <dependencies>
+    <dependency>
+      <artifactId>spring-shell-starter</artifactId>
+      <groupId>org.springframework.shell</groupId>
+      <version>2.0.0.RELEASE</version>
+    </dependency>
+
+    <dependency>
+      <artifactId>lombok</artifactId>
+      <groupId>org.projectlombok</groupId>
+      <optional>true</optional>
+      <version>${org.projectlombok.version}</version>
+    </dependency>
+
+    <dependency>
+      <artifactId>jackson-databind</artifactId>
+      <groupId>com.fasterxml.jackson.core</groupId>
+      <version>2.9.8</version>
+    </dependency>
+
+    <dependency>
+      <artifactId>mapstruct</artifactId>
+      <groupId>org.mapstruct</groupId>
+      <version>${org.mapstruct.version}</version>
+    </dependency>
+
+    <dependency>
+      <artifactId>spring-boot-starter-test</artifactId>
+      <exclusions>
+        <exclusion>
+          <artifactId>junit</artifactId>
+          <groupId>junit</groupId>
+        </exclusion>
+      </exclusions>
+      <groupId>org.springframework.boot</groupId>
+      <version>2.1.5.RELEASE</version>
+    </dependency>
+
+    <dependency>
+      <artifactId>junit-jupiter</artifactId>
+      <groupId>org.junit.jupiter</groupId>
+      <scope>test</scope>
+      <version>${junit.jupiter.version}</version>
+    </dependency>
+
+    <dependency>
+      <artifactId>junit-platform-commons</artifactId>
+      <groupId>org.junit.platform</groupId>
+      <scope>test</scope>
+      <version>1.4.1</version>
+    </dependency>
+
+    <dependency>
+      <artifactId>junit-jupiter-engine</artifactId>
+      <groupId>org.junit.jupiter</groupId>
+      <scope>test</scope>
+    </dependency>
+
+    <dependency>
+      <artifactId>junit-jupiter-api</artifactId>
+      <groupId>org.junit.jupiter</groupId>
+      <scope>test</scope>
+    </dependency>
+
+    <dependency>
+      <artifactId>mockito-core</artifactId>
+      <groupId>org.mockito</groupId>
+      <scope>test</scope>
+      <version>2.27.0</version>
+    </dependency>
+
+    <dependency>
+      <artifactId>mockito-junit-jupiter</artifactId>
+      <groupId>org.mockito</groupId>
+      <scope>test</scope>
+      <version>2.27.0</version>
+    </dependency>
+
+    <!-- https://mvnrepository.com/artifact/com.spotify/docker-maven-plugin -->
+    <dependency>
+      <artifactId>docker-maven-plugin</artifactId>
+      <groupId>com.spotify</groupId>
+      <version>1.2.0</version>
+    </dependency>
+
+  </dependencies>
+
+  <description>Zendesk Search</description>
+  <groupId>com.harsain</groupId>
+  <modelVersion>4.0.0</modelVersion>
+  <name>zendesk-search</name>
+
+  <parent>
+    <artifactId>spring-boot-starter-parent</artifactId>
+    <groupId>org.springframework.boot</groupId>
+    <relativePath/>
+    <version>2.1.5.RELEASE</version> <!-- lookup parent from service -->
+  </parent>
+
+  <properties>
+    <java.version>12</java.version>
+    <junit.jupiter.version>5.4.2</junit.jupiter.version>
+    <org.mapstruct.version>1.3.0.Final</org.mapstruct.version>
+    <org.projectlombok.version>1.18.8</org.projectlombok.version>
+  </properties>
 
   <repositories>
     <repository>
@@ -198,5 +236,7 @@
       <url>https://repo.spring.io/milestone</url>
     </repository>
   </repositories>
+
+  <version>0.0.1-SNAPSHOT</version>
 
 </project>

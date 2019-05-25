@@ -1,14 +1,14 @@
 package com.harsain.zendesksearch.dto;
 
-import lombok.Data;
-
 import java.lang.reflect.Field;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
+import lombok.Data;
 
 @Data
 public class User {
+
   private String _id;
   private String shared;
   private String last_login_at;
@@ -30,6 +30,7 @@ public class User {
   private String email;
 
   public static List<String> getProperties() {
-    return Arrays.stream(User.class.getDeclaredFields()).map(Field::getName).collect(Collectors.toList());
+    return Arrays.stream(User.class.getDeclaredFields()).map(Field::getName)
+        .collect(Collectors.toList());
   }
 }

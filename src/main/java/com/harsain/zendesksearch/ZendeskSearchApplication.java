@@ -4,11 +4,12 @@ import com.harsain.zendesksearch.shell.ShellHelper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.util.StringUtils;
 
 @SpringBootApplication
+@EnableConfigurationProperties
 public class ZendeskSearchApplication {
-
   @Autowired
   private static ShellHelper shellHelper;
 
