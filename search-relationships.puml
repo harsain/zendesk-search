@@ -1,0 +1,23 @@
+@startuml
+
+title Relationships - Zendesk Search Entities
+
+
+class Ticket {
+  +void User
+  +void User
+  +void Organisation()
+}
+
+class Organisation
+class User {
+    +void Organisation
+}
+
+Organisation "1" *-up- "many" User
+Organisation "1" *-up- "many" Ticket
+
+Ticket --> "1" User: Assignee
+Ticket "1" *-up- "many" User: Submitter
+
+@enduml

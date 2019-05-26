@@ -16,10 +16,10 @@ public class FilterPredicate {
         Method getter = new PropertyDescriptor(key, user.getClass()).getReadMethod();
         if (getter != null) {
           Object valueRead = getter.invoke(user);
-            if (getter.getReturnType().equals(List.class)) {
-                return ((ArrayList) valueRead).stream()
-                        .anyMatch(tag -> tag.toString().equalsIgnoreCase(value.toString()));
-            }
+          if (getter.getReturnType().equals(List.class)) {
+            return ((ArrayList) valueRead).stream()
+                .anyMatch(tag -> tag.toString().equalsIgnoreCase(value.toString()));
+          }
           return valueRead.toString().equalsIgnoreCase(value);
         }
 

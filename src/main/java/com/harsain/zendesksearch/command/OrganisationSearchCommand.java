@@ -9,6 +9,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.shell.standard.ShellComponent;
 import org.springframework.shell.standard.ShellMethod;
+import org.springframework.shell.standard.ShellOption;
 
 @ShellComponent
 public class OrganisationSearchCommand {
@@ -19,11 +20,14 @@ public class OrganisationSearchCommand {
   private ObjectMapper objectMapper = new ObjectMapper();
 
   @ShellMethod(value = "Organisation field search", key = "organisation-search")
-  public String search(String key, String value)
-      throws NoOrganisationFoundException, JsonProcessingException {
+  public String search(
+      @ShellOption(value = {"--key", "-K"}, help = "The key to match value for") String key,
+      @ShellOption(defaultValue = "", help = "The value to match", value = {"--value",
+          "-V"}) String value)
+      throws JsonProcessingException {
     List<OrganisationResponseDto> organisationResponseDtos = organisationService
-        .findBy(key, value.toString());
-    if (organisationResponseDtos.size() > 0) {
+        .findBy(key, value);
+    if (!organisationResponseDtos.isEmpty()) {
       return objectMapper.writerWithDefaultPrettyPrinter()
           .writeValueAsString(organisationResponseDtos);
     } else {

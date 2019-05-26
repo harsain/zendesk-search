@@ -3,7 +3,6 @@ package com.harsain.zendesksearch.command;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.harsain.zendesksearch.dto.response.UserResponseDto;
-import com.harsain.zendesksearch.exception.InvalidInputException;
 import com.harsain.zendesksearch.exception.NoUsersFoundException;
 import com.harsain.zendesksearch.service.UserService;
 import java.util.List;
@@ -21,11 +20,13 @@ public class UserSearchCommand {
   private ObjectMapper objectMapper = new ObjectMapper();
 
   @ShellMethod(value = "User Search Field", key = "user-search")
-  public String search(@ShellOption({"--key", "-K"}) String key,
-      @ShellOption({"--value", "-V"}) Object val)
-      throws InvalidInputException, JsonProcessingException {
+  public String search(
+      @ShellOption(value = {"--key", "-K"}, help = "The key to match value for") String key,
+      @ShellOption(defaultValue = "", help = "The value to match", value = {"--value",
+          "-V"}) Object val)
+      throws JsonProcessingException {
     List<UserResponseDto> users = userService.findBy(key, val.toString());
-    if (users.size() > 0) {
+    if (!users.isEmpty()) {
       return objectMapper.writerWithDefaultPrettyPrinter().writeValueAsString(users);
     } else {
       throw new NoUsersFoundException(

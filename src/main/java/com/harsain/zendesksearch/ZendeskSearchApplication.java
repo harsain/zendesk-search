@@ -10,6 +10,7 @@ import org.springframework.util.StringUtils;
 @SpringBootApplication
 @EnableConfigurationProperties
 public class ZendeskSearchApplication {
+
   @Autowired
   private static ShellHelper shellHelper;
 

@@ -20,11 +20,13 @@ public class TicketSearchCommand {
   private ObjectMapper objectMapper = new ObjectMapper();
 
   @ShellMethod(value = "Ticket field search", key = "ticket-search")
-  public String search(@ShellOption({"--key", "-k"}) String key,
-      @ShellOption({"--value", "-v"}) String value)
-      throws NoTicketFoundException, JsonProcessingException {
+  public String search(
+      @ShellOption(value = {"--key", "-K"}, help = "The key to match value for") String key,
+      @ShellOption(defaultValue = "", help = "The value to match", value = {"--value",
+          "-V"}) String value)
+      throws JsonProcessingException {
     List<TicketResponseDto> ticketResponseDtos = ticketService.findBy(key, value.toString());
-    if (ticketResponseDtos.size() > 0) {
+    if (!ticketResponseDtos.isEmpty()) {
       return objectMapper.writerWithDefaultPrettyPrinter().writeValueAsString(ticketResponseDtos);
     } else {
       throw new NoTicketFoundException(

@@ -29,19 +29,15 @@ public class SearchCommand {
     // 1. read entity --------------------------------------------
     do {
       entity = inputReader.prompt("Entity [user, organisation, ticket]");
-      if (StringUtils.hasText(entity)) {
-        System.out.println(String.format("ENTITY TO SEARCH: %s", entity));
-      } else {
+      if (!StringUtils.hasText(entity)) {
         shellHelper.printWarning("Entity CAN NOT be empty string? Please enter valid value!");
       }
     } while (entity == null);
 
     // 2. read entity's attribute --------------------------------------------
     do {
-      key = inputReader.prompt(String.format("Entity: %s key", entity), null, false);
-      if (StringUtils.hasText(key)) {
-        System.out.println(String.format("KEY: %s", key));
-      } else {
+      key = inputReader.prompt(String.format("Entity: %s KEY", entity), null, false);
+      if (!StringUtils.hasText(key)) {
         shellHelper.printWarning("KEY CAN NOT be empty string? Please enter valid value!");
       }
     } while (key == null);
@@ -50,9 +46,7 @@ public class SearchCommand {
     do {
       value = inputReader
           .prompt(String.format("ENTITY: %s KEY: %s, VALUE", entity, key), "", false);
-      if (StringUtils.hasText(key)) {
-        System.out.println(String.format("VALUE: %s", key));
-      } else {
+      if (!StringUtils.hasText(key)) {
         shellHelper.printWarning("KEY CAN NOT be empty string? Please enter valid value!");
       }
     } while (value == null);

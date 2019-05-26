@@ -10,6 +10,67 @@ Spring Shell provides infrastructure to create REPL (Read, Evaluate, Print, Loop
 
 ![Relationships](relations.png)
 
+Spring shell also provides some common commands out of the box i.e. _clear_, _quit_, _exit_ & _help_
+ 
+----
+
+#### Steps to run the application:
+
+---
+
+###### _Prerequisites_
+- Java
+- Docker
+- Maven _(but maven wrapper is included in the project itself)_
+---
+
+- 1 Clean and install dependencies, will run tests as well
+```bash
+./mvnw clean install
+```
+
+- 2 Compile and package the code
+```bash
+./mvnw compile package
+```
+
+- 3 Run the application
+```bash
+./mvnw spring-boot:run
+``` 
+_---- OR with **DOCKER** ----_
+
+- 4 Build Docker image
+```bash
+./mvnw dockerfile:build
+```
+Run application in docker container
+```bash
+docker run -it zendesk-search:0.0.1-SNAPSHOT
+```
+
+#### Run Tests
+
+```bash
+./mvnw test
+```
+#### Coverage tests report:
+_`open the below mentioned file in a web browser`_
+
+```bash
+open target/site/jacoco/index.html
+```
+
+#### Generation of Docs
+```bash
+./mvnw clean javadoc:javadoc
+```
+
+#### View Java docs
+_`open the below mentioned file in a web browser`_
+```bash
+open target/site/apidocs/index.html
+```
 ___
 
 #### Available commands:
@@ -40,6 +101,26 @@ Ticket Search Command
 User Search Command
         user-search: User Search Field
 ````
+We can even search for help on a specific available command
+```bash
+Zendesk-search:>help user-search
+
+
+NAME
+	user-search - User Search Field
+
+SYNOPSYS
+	user-search [--key] string  [[--value] object]  
+
+OPTIONS
+	--key or -K  string
+		The key to match value for
+		[Mandatory]
+
+	--value or -V  object
+		The value to match
+		[Optional, default = ]
+``` 
 
 - ###### Clear
 ````bash
@@ -272,60 +353,11 @@ ENTITY: user KEY: _id, VALUE: 1
   "email" : "xxxxxxx@xxxxxx.com"
 } ]
 ````
-
-
-----
-#### Steps to run the application:
-___
-###### _Prerequisites_
-- Java
-- Docker
----
-
-- 1 Clean and install dependencies, will run tests as well
-```bash
-./mvnw clean install
-```
-
-- 2 Compile and package the code
-```bash
-./mvnw compile package
-```
-
-- 3 Run the application
-```bash
-./mvnw spring-boot:run
-``` 
-###### _OR_
-if you have docker
-```bash
-docker run -it zendesk-search:0.0.1-SNAPSHOT
-```
-
-
-#### Run Tests
-
-```bash
-./mvnw test
-```
-#### Coverage tests report:
-_`open the below mentioned file in a web browser`_
-
-```bash
-open target/site/jacoco/index.html
-```
-
-#### Generation of Docs
-```bash
-./mvnw clean javadoc:javadoc
-```
-
-#### View Java docs
-_`open the below mentioned file in a web browser`_
-```bash
-open target/site/apidocs/index.html
-```
 ___
 
 #### Scope of further improvements
 
+- Take JSON files as input to the application
+- Handle null / empty search values
+- Further check user inputs
+- Add tabular output format

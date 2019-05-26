@@ -47,7 +47,7 @@ public class InputReader {
 
 
   /**
-   * @param prompt  shell prompt
+   * @param prompt shell prompt
    * @param defaultValue default value to be used
    * @param echo whether to echo the entered value
    * @return String prompt
@@ -68,9 +68,10 @@ public class InputReader {
 
   /**
    * Loops until one of the `options` is provided. Pressing return is equivalent to returning
-   * `defaultValue`. Passing null for defaultValue signifies that there is no default
-   * value. Passing "" or null among optionsAsList means that empty answer is allowed, in these
-   * cases this method returns empty String "" as the result of its execution.
+   * `defaultValue`. Passing null for defaultValue signifies that there is no default value. Passing
+   * "" or null among optionsAsList means that empty answer is allowed, in these cases this method
+   * returns empty String "" as the result of its execution.
+   *
    * @param prompt String prompt entered
    * @param defaultValue String default value to be used
    * @param optionsAsList String list of options
@@ -118,10 +119,11 @@ public class InputReader {
   /**
    * Loops until one value from the list of options is selected, printing each option on its own
    * line.
+   *
    * @param headingMessage String headingMessage shown to the user
    * @param promptMessage String prompt message
    * @param options String Map of options
-   * @param ignoreCase  boolean if to ignore case
+   * @param ignoreCase boolean if to ignore case
    * @param defaultValue String default value to be used
    * @return String
    */
@@ -169,9 +171,9 @@ public class InputReader {
     }
     Iterator<String> it = l.iterator();
     while (it.hasNext()) {
-        if (it.next().equalsIgnoreCase(s)) {
-            return true;
-        }
+      if (it.next().equalsIgnoreCase(s)) {
+        return true;
+      }
     }
     return false;
   }
